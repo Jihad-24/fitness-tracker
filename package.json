@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.2.0",
     "axios": "^1.6.2",
     "firebase": "^10.6.0",
     "localforage": "^1.10.0",

@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const TrainerDetails = () => {
     const { id } = useParams();
     const [trainerData, setTrainerData] = useState(null);
+    const axiosPublic = useAxiosPublic();
 
     useEffect(() => {
-        fetch('/trainer.json')
-            .then(res => res.json())
-            .then(data => {
-                const foundTrainer = data.find(trainer => trainer._id == id);
-                setTrainerData(foundTrainer);
-            })
-    }, [id])
+        axiosPublic.get('/teacher')
+        .then(res=>{
+            const data = res.data;
+            const foundTrainer = data.find(trainer => trainer._id == id);
+                    setTrainerData(foundTrainer);
+        })
+        .catch(error=>{
+            console.log(error.message);
+        })
+       
+    }, [id,axiosPublic])
 
 
 

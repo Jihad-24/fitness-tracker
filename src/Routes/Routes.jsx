@@ -3,7 +3,7 @@ import Main from "../Layout/Main";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Gallery from "../Pages/Gallery/Gallery";
-import Dashboard from "../Pages/Dashboard/Dashboard";
+import Dashboard from "../Layout/Dashboard";
 import Trainer from "../Pages/Trainer/Trainer";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import Forums from "../Pages/Forums/Forums";
@@ -13,6 +13,10 @@ import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import BecomeTrainer from "../Pages/Trainer/BecomeTrainer";
 import TrainerBook from "../Pages/Trainer/TrainerBook";
 import ClassDetails from "../Pages/Classes/ClassDetails";
+import Subscribers from "../Pages/Dashboard/Subscribers/Subscribers";
+import AllTrainers from "../Pages/Dashboard/AllTrainers/AllTrainers";
+import AppliedTrainer from "../Pages/Dashboard/AppliedTrainer/AppliedTrainer";
+import Balance from "../Pages/Dashboard/Balance/Balance";
 
 
 
@@ -72,6 +76,22 @@ const router = createBrowserRouter([
             // trainer user route
 
             // admin routes
+            {
+                path:'allSubscribers',
+                element:<Subscribers></Subscribers>,
+            },
+            {
+                path:'allTrainers',
+                element:<AllTrainers></AllTrainers>,
+            },
+            {
+                path:'appliedTrainer',
+                element:<AppliedTrainer></AppliedTrainer>,
+            },
+            {
+                path:'balance',
+                element:<Balance></Balance>,
+            },
             
         ]
     },

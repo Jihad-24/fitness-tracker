@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Trainer = () => {
     const [trainerData,setTrainerData]=useState();
+    const axiosPublic = useAxiosPublic();
 
     useEffect(()=>{
-        fetch('/trainer.json')
-        .then(res => res.json())
-        .then(data=>{
-            setTrainerData(data)
+
+        axiosPublic.get('/teacher')
+        .then(res=>{
+            setTrainerData(res.data)
         })
-    },[])
+        .catch(error=>{
+            console.log(error.message);
+        })
+    },[axiosPublic])
 
     return (
         <div className="my-20 ">

@@ -17,7 +17,7 @@ const Classes = () => {
         <div>
             <div className="mb-10">
                 <div className="overflow-x-auto">
-                    <h1 className="text-center text-4xl font-bold my-2">Class Scedule</h1>
+                    <h1 className="text-center  text-4xl font-bold my-2">Class Scedule</h1>
                     <table className="table w-2/3 mx-auto">
                         {/* head */}
                         <thead>
