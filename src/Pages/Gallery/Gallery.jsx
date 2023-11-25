@@ -48,8 +48,21 @@ const Gallery = () => {
     }, [page, fetchImages]);
 
     return (
-        <div className="mx-5 md:mx-10 my-12">
-            <div className="gallery">
+        <div className="mx-5 md:mx-10 ">
+            <div className="h-52 w-full flex items-center justify-center border rounded"
+                style={{
+                    backgroundImage: 'url("https://i.ibb.co/fDmvkM6/360-F-606549277-BMzgu4-Qo-Nfq-HDkm-Ugng-Jr-FHux-ZXvk-S7d.jpg")',
+                    backgroundSize: 'cover', // Set background size explicitly
+                    opacity: 0.8,
+                    backgroundRepeat: 'no-repeat'
+                }}
+            >
+                <h1 className="text-4xl font-bold text-white">Gallery</h1>
+            </div>
+
+
+
+            <div className="gallery my-12">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {(isLoading ? Array.from({ length: perPage }, (_, index) => (
                         <div key={index} className="grid-item">

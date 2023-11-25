@@ -5,7 +5,7 @@
         "profileImage": "https://i.ibb.co/4d711gg/yoga.jpg",
         "experienceYears": 8,
         "availableTimeSlot": "Monday, Wednesday, Friday - 9 AM to 1 PM",
-        "gymClass": "Yoga",
+        "gymClass": "Yoga Coach",
         "description": "Experience tranquility through guided yoga sessions focusing on breath control, flexibility, and relaxation techniques. Suitable for all levels."
     },
     {
@@ -14,7 +14,7 @@
         "profileImage": "https://i.ibb.co/tpCZNGZ/hiit.jpg",
         "experienceYears": 5,
         "availableTimeSlot": "Tuesday, Thursday, Saturday - 2 PM to 6 PM",
-        "gymClass": "HIIT",
+        "gymClass": "HIIT Coach",
         "description": "High-Intensity Interval Training (HIIT) sessions combining bursts of intense exercise with short recovery periods. Push your limits and boost cardiovascular fitness."
     },
     {
@@ -23,7 +23,7 @@
         "profileImage": "https://i.ibb.co/h7tWG8S/crossfit.jpg",
         "experienceYears": 10,
         "availableTimeSlot": "Monday to Friday - 10 AM to 4 PM",
-        "gymClass": "CrossFit",
+        "gymClass": "CrossFit Coach",
         "description": "Engage in CrossFit sessions combining functional movements performed at high intensity. Experience varied workouts for overall fitness."
     },
     {
@@ -32,7 +32,7 @@
         "profileImage": "https://i.ibb.co/BfJVgk1/Pilates.jpg",
         "experienceYears": 7,
         "availableTimeSlot": "Wednesday, Friday - 3 PM to 7 PM",
-        "gymClass": "Pilates",
+        "gymClass": "Pilates Coach",
         "description": "Join Pilates sessions focusing on core strength, flexibility, and controlled movements. Improve posture and achieve a balanced body."
     },
     {
@@ -41,7 +41,7 @@
         "profileImage": "https://i.ibb.co/tsCtzGK/Zumba.jpg",
         "experienceYears": 6,
         "availableTimeSlot": "Monday, Thursday - 11 AM to 3 PM",
-        "gymClass": "Zumba",
+        "gymClass": "Zumba Coach",
         "description": "Experience the rhythm and fun of Zumba sessions with energetic dance moves set to Latin and international music. Burn calories while enjoying a dance party!"
     },
     {
@@ -50,7 +50,7 @@
         "profileImage": "https://i.ibb.co/HzcsV0f/Functional-Training.jpg",
         "experienceYears": 9,
         "availableTimeSlot": "Tuesday, Saturday - 8 AM to 12 PM",
-        "gymClass": "Functional Training",
+        "gymClass": "Functional Training Coach",
         "description": "Engage in functional training sessions focusing on full-body movements, improving daily functionality, and enhancing overall strength and mobility."
     }
 ]

@@ -12,6 +12,7 @@ import HomePage from "../Pages/HomePage/HomePage";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import BecomeTrainer from "../Pages/Trainer/BecomeTrainer";
 import TrainerBook from "../Pages/Trainer/TrainerBook";
+import ClassDetails from "../Pages/Classes/ClassDetails";
 
 
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path:'classes',
                 element:<Classes></Classes>,
+            },
+            {
+                path:'classes/:id',
+                element:<ClassDetails></ClassDetails>,
             },
             {
                 path:'forums',

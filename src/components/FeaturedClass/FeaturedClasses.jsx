@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 const FeaturedClasses = () => {
-    const [classData,setClassData]=useState();
+    const [classData,setClassData]=useState(null);
 
     useEffect(()=>{
         fetch('/class.json')
