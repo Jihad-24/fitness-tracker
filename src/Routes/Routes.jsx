@@ -17,6 +17,7 @@ import Subscribers from "../Pages/Dashboard/Subscribers/Subscribers";
 import AllTrainers from "../Pages/Dashboard/AllTrainers/AllTrainers";
 import AppliedTrainer from "../Pages/Dashboard/AppliedTrainer/AppliedTrainer";
 import Balance from "../Pages/Dashboard/Balance/Balance";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
             {
                 path:'balance',
                 element:<Balance></Balance>,
+            },
+            {
+                path:'payment',
+                element:<Payment></Payment>,
             },
             
         ]
