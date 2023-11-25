@@ -11,6 +11,7 @@ import Classes from "../Pages/Classes/Classes";
 import HomePage from "../Pages/HomePage/HomePage";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import BecomeTrainer from "../Pages/Trainer/BecomeTrainer";
+import TrainerBook from "../Pages/Trainer/TrainerBook";
 
 
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path:'trainer',
                 element:<Trainer></Trainer>,
+            },
+            {
+                path:'trainerbooked',
+                element:<TrainerBook></TrainerBook>,
             },
             {
                 path:'trainer/:id',

@@ -51,7 +51,9 @@ const Trainer = () => {
                         <FaLinkedin></FaLinkedin>
                     </a>
                       </div>
+                      <Link to={'/trainerbooked'}>
                       <button className="btn btn-sm btn-accent">Available Time Slot: {trainer.slot}</button>
+                      </Link>
                       <div className="card-actions justify-end">
                         <Link to={`/trainer/${trainer._id}`}>
                         <button className="btn btn-primary">Know More</button>

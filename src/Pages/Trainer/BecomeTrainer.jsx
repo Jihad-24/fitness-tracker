@@ -28,7 +28,6 @@ const BecomeTrainer = () => {
             skill4: { checked: form.skill4.checked, value: form.skill4.checked ? form.skill4.value : '' }
         };
 
-        // Filter checked skills and create a new object with only checked skills
         const checkedSkills = {};
         for (const [key, value] of Object.entries(skills)) {
             if (value.checked) {
