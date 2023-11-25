@@ -12,7 +12,6 @@ const Subscribe = () => {
         const userInfo = { name, email};
         axiosPublic.post('/subscribes', userInfo)
             .then(res => {
-                
                 if (res.data.insertedId) {
                     Swal.fire({
                         position: "top-end",
@@ -23,6 +22,9 @@ const Subscribe = () => {
                     });
                     form.reset();
                 }
+            })
+            .catch(error=>{
+                console.log(error.message);
             })
 
     }
