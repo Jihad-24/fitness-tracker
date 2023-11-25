@@ -19,6 +19,7 @@ const CheckoutForm = () => {
     const [cart] = useCart();
     const totalPrice = cart.reduce((total, item) => total + parseInt(item.price), 0);
 
+    // console.log(user?.email);
 
     useEffect(() => {
         if (totalPrice > 0) {
@@ -88,7 +89,7 @@ const CheckoutForm = () => {
                 const res = await axiosPublic.post('/payments', payment)
                 console.log('payment saved', res.data);
 
-                if (res.data?.paymentResult?.insertedId) {
+                if (res.data?.insertedId) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",

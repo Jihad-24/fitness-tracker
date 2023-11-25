@@ -8,7 +8,7 @@ import useAuth from "../../../hooks/useAuth";
 const AllTrainers = () => {
     const { user } = useAuth();
     const [status, setStatus] = useState('');
-    const [cart] = useCart();
+    const [cart,refetch] = useCart();
     const axiosPublic = useAxiosPublic();
     const totalPrice = cart.reduce((total, item) => total + parseInt(item.price), 0);
 
@@ -20,12 +20,13 @@ const AllTrainers = () => {
                 // console.log(data);
                 // console.log(data.status);
                 setStatus(data.status)
+                refetch()
                 // setStatus(findData.status);
             })
             .catch(error => {
                 console.log(error.message);
             })
-    }, [axiosPublic, user])
+    }, [axiosPublic, user,refetch])
     
     return (
         <div>
