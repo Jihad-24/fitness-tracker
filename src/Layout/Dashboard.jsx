@@ -38,6 +38,12 @@ const Dashboard = () => {
                                     Balance
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to={"/dashboard/addNewForum"}>
+                                    <FaBook></FaBook>
+                                    Add new Forum
+                                </NavLink>
+                            </li>
 
                         </>) : isTrainer ? (
                             <>
@@ -52,6 +58,12 @@ const Dashboard = () => {
                                     <NavLink to={"/dashboard/manageMember"}>
                                         <FaBook></FaBook>
                                         Manage member
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={"/dashboard/addNewForum"}>
+                                        <FaBook></FaBook>
+                                        Add New Forum
                                     </NavLink>
                                 </li>
                             </>
