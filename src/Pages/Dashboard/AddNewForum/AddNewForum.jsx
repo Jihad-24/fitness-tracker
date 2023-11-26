@@ -74,7 +74,7 @@ const AddNewForum = () => {
                             type="text" placeholder="Post Title"
                             className="input input-bordered w-full" />
                     </div>
-                    <div className="flex gap-6 my-6">
+                    <div className="flex md:flex-row flex-col gap-6 my-6">
                         {/* category */}
                         <div className="form-control w-full">
                             <label className="label">

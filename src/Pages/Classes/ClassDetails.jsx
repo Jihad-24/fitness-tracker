@@ -50,7 +50,6 @@ const ClassDetails = () => {
                         </a>
                     </div>
                     <h3><span className="font-bold">Trainer Available on: </span>{classData?.availableTimeSlot}</h3>
-                    <button className="btn btn-sm btn-accent">Available Time Slot: {classData?.slot}</button>
                     <p className="md:w-96"><span className="font-bold">Description: </span>{classData?.description}</p>
                     <Link to={'/trainer'}>
                         <button className="btn btn-primary">Join Now</button>

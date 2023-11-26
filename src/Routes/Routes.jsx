@@ -23,6 +23,7 @@ import ManageSlots from "../Pages/Dashboard/ManageSlots/ManageSlots";
 import ManageMember from "../Pages/Dashboard/ManageMember/ManageMember";
 import GiveAdvice from "../Pages/Dashboard/ManageMember/GiveAdvice";
 import AddNewForum from "../Pages/Dashboard/AddNewForum/AddNewForum";
+import AddNewClass from "../Pages/Dashboard/AddNewClass/AddNewClass";
 
 
 
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
             {
                 path:'addNewForum',
                 element:<AddNewForum></AddNewForum>,
+            },
+            {
+                path:'addNewClass',
+                element:<AddNewClass></AddNewClass>,
             },
 
             // admin routes
