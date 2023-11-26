@@ -13,7 +13,7 @@ const FeaturedClasses = () => {
     },[])
     return (
         <div className="my-16">
-          <div className="text-center w-3/4 mx-auto space-y-4 mb-10">
+          <div className="text-center w-full md:w-3/4 mx-auto space-y-4 mb-10">
             <h1 className="text-4xl font-bold">Our <span className="text-blue-500">Classes</span></h1>
             <p className="text-[#636262] text-xl">Our fitness coaches can enable you to meet your wellness objectives. They can turn into your instructor, your helper, your mentor and your companion.</p>
           </div>

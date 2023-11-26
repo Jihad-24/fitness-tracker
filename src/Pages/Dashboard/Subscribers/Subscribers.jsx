@@ -20,9 +20,9 @@ const Subscribers = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto w-3/4 mx-auto">
+            <div className="overflow-x-auto w-full md:w-3/4 mx-auto">
             <div className="divider"></div>
-                <h1 className="text-center text-4xl font-bold my-2">All Subscribers</h1>
+                <h1 className="text-center text-2xl md:text-4xl font-bold my-2">All Subscribers</h1>
                 <div className="divider"></div>
                 <table className="table table-zebra">
                     {/* head */}

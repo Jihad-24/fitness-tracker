@@ -30,9 +30,9 @@ const AllTrainers = () => {
     
     return (
         <div>
-            <div className="overflow-x-auto w-3/4 mx-auto">
+            <div className="overflow-x-auto w-full md:w-3/4 mx-auto">
                 <div className="divider"></div>
-                <h1 className="text-center text-4xl font-bold my-2">All Trainers</h1>
+                <h1 className="text-center text-2xl md:text-4xl font-bold my-2">All Trainers</h1>
                 <div className="divider"></div>
                 <div className="flex justify-evenly mb-10">
                     <h2 className="text-3xl font-semibold">Total Salary: {totalPrice}</h2>

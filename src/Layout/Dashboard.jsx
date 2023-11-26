@@ -4,15 +4,16 @@ import { NavLink, Outlet } from "react-router-dom";
 
 
 const Dashboard = () => {
-    const [isAdmin] = 'true';
+    const [isAdmin] = '';
+    const [isTrainer] = 'true';
     return (
         <div className="flex max-w-screen-xl mx-auto">
             {/* dashboard side bar */}
             <div className="w-64 min-h-screen bg-[#D1A054]">
                 <ul className="menu">
                     {
-                        isAdmin ? <>
-                           
+                        isAdmin ? (<>
+                            {/* Admin Routes */}
                             <li>
                                 <NavLink to={"/dashboard/allSubscribers"}>
                                     <FaUtensils></FaUtensils>
@@ -38,9 +39,26 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
 
-                        </>
-                            :
+                        </>) : isTrainer ? (
                             <>
+                                {/* Trainer routes */}
+                                <li>
+                                    <NavLink to={"/dashboard/manageSlots"}>
+                                        <FaBook></FaBook>
+                                        Manage Slots
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={"/dashboard/manageMember"}>
+                                        <FaBook></FaBook>
+                                        Manage member
+                                    </NavLink>
+                                </li>
+                            </>
+                        )
+                            :
+                            (<>
+                                {/* User Routes */}
                                 <li>
                                     <NavLink to={"/dashboard/userHome"}>
                                         <FaHome></FaHome>
@@ -71,7 +89,7 @@ const Dashboard = () => {
                                         Payment History
                                     </NavLink>
                                 </li>
-                            </>
+                            </>)
                     }
                     {/* shared navlinks  */}
                     <div className="divider"></div>

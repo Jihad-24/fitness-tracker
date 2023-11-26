@@ -8,7 +8,7 @@ const Payment = () => {
         <div>
             <div className="">
             <div className="divider"></div>
-                <h1 className="text-center text-4xl font-bold my-2">All Subscribers</h1>
+                <h1 className="text-center text-2xl md:text-4xl font-bold my-2">All Subscribers</h1>
                 <div className="divider"></div>
             </div>
             <div>

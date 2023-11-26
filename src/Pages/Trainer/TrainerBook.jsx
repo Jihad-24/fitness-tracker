@@ -12,10 +12,11 @@ const TrainerBook = () => {
 
     const handleSilverPlan = event => {
         event.preventDefault();
+        const name = user.displayName;
         const email = user.email;
         const pack = 'silver';
         const price = 25;
-        const trainerDoc = { email, pack, price }
+        const trainerDoc = { email, pack, price ,name}
         console.log(trainerDoc);
         axiosPublic.post('/plans', trainerDoc)
             .then(res => {
@@ -37,9 +38,10 @@ const TrainerBook = () => {
     const handleGoldPlan = event => {
         event.preventDefault();
         const email = user.email;
+        const name = user.displayName;
         const pack = 'gold';
         const price = 50;
-        const trainerDoc = { email, pack, price }
+        const trainerDoc = { email, pack, price ,name}
         console.log(trainerDoc);
         axiosPublic.post('/plans', trainerDoc)
             .then(res => {
@@ -62,8 +64,9 @@ const TrainerBook = () => {
         event.preventDefault();
         const email = user.email;
         const pack = 'diamond';
+        const name = user.displayName;
         const price = 100;
-        const trainerDoc = { email, pack, price }
+        const trainerDoc = { email, pack, price ,name}
         console.log(trainerDoc);
         axiosPublic.post('/plans', trainerDoc)
             .then(res => {
