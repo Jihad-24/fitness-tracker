@@ -20,6 +20,8 @@ import Balance from "../Pages/Dashboard/Balance/Balance";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PrivateRoute from "./PrivateRoute";
 import ManageSlots from "../Pages/Dashboard/ManageSlots/ManageSlots";
+import ManageMember from "../Pages/Dashboard/ManageMember/ManageMember";
+import GiveAdvice from "../Pages/Dashboard/ManageMember/GiveAdvice";
 
 
 
@@ -79,7 +81,15 @@ const router = createBrowserRouter([
             // trainer user route
             {
                 path:'manageSlots',
-                element:<ManageSlots></ManageSlots>
+                element:<ManageSlots></ManageSlots>,
+            },
+            {
+                path:'manageMember',
+                element:<ManageMember></ManageMember>,
+            },
+            {
+                path:'manageMember/:id',
+                element:<GiveAdvice></GiveAdvice>,
             },
 
             // admin routes
