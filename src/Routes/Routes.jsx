@@ -18,6 +18,7 @@ import AllTrainers from "../Pages/Dashboard/AllTrainers/AllTrainers";
 import AppliedTrainer from "../Pages/Dashboard/AppliedTrainer/AppliedTrainer";
 import Balance from "../Pages/Dashboard/Balance/Balance";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -40,15 +41,15 @@ const router = createBrowserRouter([
             },
             {
                 path:'trainerbooked',
-                element:<TrainerBook></TrainerBook>,
+                element:<PrivateRoute><TrainerBook></TrainerBook></PrivateRoute>,
             },
             {
                 path:'trainer/:id',
-                element:<TrainerDetails></TrainerDetails>,
+                element:<PrivateRoute><TrainerDetails></TrainerDetails></PrivateRoute>,
             },
             {
                 path:'becomeTrainer',
-                element:<BecomeTrainer></BecomeTrainer>,
+                element:<PrivateRoute><BecomeTrainer></BecomeTrainer></PrivateRoute>,
             },
             {
                 path:'classes',
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             // normal users route
         

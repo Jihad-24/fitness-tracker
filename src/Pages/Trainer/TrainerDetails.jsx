@@ -11,16 +11,16 @@ const TrainerDetails = () => {
 
     useEffect(() => {
         axiosPublic.get('/teacher')
-        .then(res=>{
-            const data = res.data;
-            const foundTrainer = data.find(trainer => trainer._id == id);
-                    setTrainerData(foundTrainer);
-        })
-        .catch(error=>{
-            console.log(error.message);
-        })
-       
-    }, [id,axiosPublic])
+            .then(res => {
+                const data = res.data;
+                const foundTrainer = data.find(trainer => trainer._id == id);
+                setTrainerData(foundTrainer);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
+    }, [id, axiosPublic])
 
 
 
@@ -59,11 +59,18 @@ const TrainerDetails = () => {
                         </a>
                     </div>
                     <h3><span className="font-bold">Trainer Available on: </span>{trainerData?.availableTimeSlot}</h3>
-                    <button className="btn btn-sm btn-accent">Available Time Slot: {trainerData?.slot}</button>
+                    <Link to={'/trainerbooked'}>
+                      <button className="btn btn-sm btn-accent">Available Time Slot: {trainerData?.slot}</button>
+                      </Link>
                     <p className="md:w-96"><span className="font-bold">Description: </span>{trainerData?.description}</p>
-                    <Link to={'/becomeTrainer'}>                    <button className="btn btn-success">Become a Trainer</button>
-                    </Link>
+
                 </div>
+               <div className="text-center mb-16 ">
+                <h1 className="font-bold text-3xl pb-4">Want Be a Trainer</h1>
+               <Link to={'/becomeTrainer'}>
+                    <button className="btn btn-success">Become a Trainer</button>
+                </Link>
+               </div>
             </div>
         </div>
     );
