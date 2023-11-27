@@ -1,4 +1,4 @@
-import { FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingBasket, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaBook, FaCalendar, FaCommentAlt, FaEnvelope, FaHome, FaList, FaShoppingBasket, FaUser, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 
@@ -8,11 +8,17 @@ const Dashboard = () => {
     return (
         <div className="flex max-w-screen-xl mx-auto">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-[#D1A054]">
+            <div className="w-40 md:w-64 min-h-screen bg-[#D1A054]">
                 <ul className="menu">
                     {
                         isAdmin ? (<>
                             {/* Admin Routes */}
+                            <li>
+                                <NavLink to={"/dashboard/adminHome"}>
+                                    <FaHome></FaHome>
+                                    User Home
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavLink to={"/dashboard/allSubscribers"}>
                                     <FaUtensils></FaUtensils>
@@ -54,6 +60,12 @@ const Dashboard = () => {
                             <>
                                 {/* Trainer routes */}
                                 <li>
+                                    <NavLink to={"/dashboard/trainerHome"}>
+                                        <FaHome></FaHome>
+                                        User Home
+                                    </NavLink>
+                                </li>
+                                <li>
                                     <NavLink to={"/dashboard/manageSlots"}>
                                         <FaBook></FaBook>
                                         Manage Slots
@@ -89,18 +101,18 @@ const Dashboard = () => {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/dashboard/reservation"}>
+                                    <NavLink to={"/dashboard/activityLog"}>
                                         <FaCalendar></FaCalendar>
                                         Activity Log
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to={"/dashboard/userProfile"}>
-                                        <FaShoppingCart></FaShoppingCart>
+                                        <FaUser></FaUser>
                                         User Profile
                                     </NavLink>
                                 </li>
-                              
+
                             </>)
                     }
                     {/* shared navlinks  */}
@@ -131,7 +143,7 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <NavLink to={"/forums"}>
-                            <FaEnvelope></FaEnvelope>
+                            <FaCommentAlt></FaCommentAlt>
                             Forum
                         </NavLink>
                     </li>

@@ -5,7 +5,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Trainer = () => {
-    const [trainerData, setTrainerData] = useState();
+    const [trainerData, setTrainerData] = useState([]);
     const axiosPublic = useAxiosPublic();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -59,7 +59,7 @@ const Trainer = () => {
                                             <FaLinkedin></FaLinkedin>
                                         </a>
                                     </div>
-                                    <Link to={'/trainerbooked'}>
+                                    <Link to={`/trainerbooked/${trainer._id}`}>
                                         <button className="btn btn-sm btn-accent">Available Time Slot: {trainer.slot}</button>
                                     </Link>
                                     <div className="card-actions justify-end">

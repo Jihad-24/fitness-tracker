@@ -24,6 +24,9 @@ import ManageMember from "../Pages/Dashboard/ManageMember/ManageMember";
 import GiveAdvice from "../Pages/Dashboard/ManageMember/GiveAdvice";
 import AddNewForum from "../Pages/Dashboard/AddNewForum/AddNewForum";
 import AddNewClass from "../Pages/Dashboard/AddNewClass/AddNewClass";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import TrainerHome from "../Pages/Dashboard/TrainerHome/TrainerHome";
+import ActivityLog from "../Pages/Dashboard/ActivityLog/ActivityLog";
 
 
 
@@ -45,7 +48,7 @@ const router = createBrowserRouter([
                 element:<Trainer></Trainer>,
             },
             {
-                path:'trainerbooked',
+                path:'trainerbooked/:id',
                 element:<PrivateRoute><TrainerBook></TrainerBook></PrivateRoute>,
             },
             {
@@ -77,11 +80,23 @@ const router = createBrowserRouter([
         children: [
             // normal users route
             {
+                path:'userHome',
+                element:<UserHome></UserHome>,
+            },
+            {
+                path:'activityLog',
+                element:<ActivityLog></ActivityLog>,
+            },
+            {
                 path:'userProfile',
                 element:<UserProfile></UserProfile>,
             },
         
             // trainer user route
+            {
+                path:'trainerHome',
+                element:<TrainerHome></TrainerHome>,
+            },
             {
                 path:'manageSlots',
                 element:<ManageSlots></ManageSlots>,
@@ -104,6 +119,10 @@ const router = createBrowserRouter([
             },
 
             // admin routes
+            {
+                path:'adminHome',
+                element:<Subscribers></Subscribers>,
+            },
             {
                 path:'allSubscribers',
                 element:<Subscribers></Subscribers>,
