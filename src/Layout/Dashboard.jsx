@@ -112,6 +112,12 @@ const Dashboard = () => {
                                         User Profile
                                     </NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to={"/dashboard/recommended"}>
+                                        <FaUser></FaUser>
+                                        Recommended Classes
+                                    </NavLink>
+                                </li>
 
                             </>)
                     }

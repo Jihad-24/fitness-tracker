@@ -27,6 +27,8 @@ import AddNewClass from "../Pages/Dashboard/AddNewClass/AddNewClass";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import TrainerHome from "../Pages/Dashboard/TrainerHome/TrainerHome";
 import ActivityLog from "../Pages/Dashboard/ActivityLog/ActivityLog";
+import UpdateProfile from "../Pages/UserProfile/UpdateProfile";
+import RecommendedClass from "../Pages/Dashboard/RecommendedClass/RecommendedClass";
 
 
 
@@ -90,6 +92,14 @@ const router = createBrowserRouter([
             {
                 path:'userProfile',
                 element:<UserProfile></UserProfile>,
+            },
+            {
+                path:'userProfile/:id',
+                element:<UpdateProfile></UpdateProfile>,
+            },
+            {
+                path:'recommended',
+                element:<RecommendedClass></RecommendedClass>,
             },
         
             // trainer user route
