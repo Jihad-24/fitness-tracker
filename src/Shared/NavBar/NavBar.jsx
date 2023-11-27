@@ -62,7 +62,6 @@ const NavBar = () => {
             {/* TODO: dashboard will be acording to user role */}
             <li className="font-semibold"><NavLink to="/dashboard">Dashboard</NavLink></li>
             <li className="font-semibold"><NavLink to="/forums">Forums</NavLink></li>
-            <li className="font-semibold"><NavLink to="/userProfile">Profile</NavLink></li>
         </>
         // }
     // </>

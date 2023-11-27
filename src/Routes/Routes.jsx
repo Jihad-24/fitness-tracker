@@ -68,10 +68,7 @@ const router = createBrowserRouter([
                 path:'forums',
                 element:<Forums></Forums>,
             },
-            {
-                path:'userProfile',
-                element:<UserProfile></UserProfile>,
-            },
+           
         ]
     },
     {
@@ -79,6 +76,10 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children: [
             // normal users route
+            {
+                path:'userProfile',
+                element:<UserProfile></UserProfile>,
+            },
         
             // trainer user route
             {

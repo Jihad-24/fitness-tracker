@@ -1,11 +1,10 @@
 import { FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingBasket, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
-import { MdReviews } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 
 
 const Dashboard = () => {
     const [isAdmin] = '';
-    const [isTrainer] = 'true';
+    const [isTrainer] = '';
     return (
         <div className="flex max-w-screen-xl mx-auto">
             {/* dashboard side bar */}
@@ -92,27 +91,16 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to={"/dashboard/reservation"}>
                                         <FaCalendar></FaCalendar>
-                                        Reservation
+                                        Activity Log
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/dashboard/cart"}>
+                                    <NavLink to={"/dashboard/userProfile"}>
                                         <FaShoppingCart></FaShoppingCart>
-                                        My Cart
+                                        User Profile
                                     </NavLink>
                                 </li>
-                                <li>
-                                    <NavLink to={"/dashboard/reviews"}>
-                                        <MdReviews />
-                                        Add Review
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to={"/dashboard/paymentHistory"}>
-                                        <FaBook></FaBook>
-                                        Payment History
-                                    </NavLink>
-                                </li>
+                              
                             </>)
                     }
                     {/* shared navlinks  */}
@@ -139,6 +127,12 @@ const Dashboard = () => {
                         <NavLink to={"/gallary"}>
                             <FaEnvelope></FaEnvelope>
                             Gallary
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/forums"}>
+                            <FaEnvelope></FaEnvelope>
+                            Forum
                         </NavLink>
                     </li>
                 </ul>
