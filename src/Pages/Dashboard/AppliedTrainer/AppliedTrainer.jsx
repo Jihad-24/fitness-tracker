@@ -6,24 +6,26 @@ import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const AppliedTrainer = () => {
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const {user}=useAuth();
     const navigate =useNavigate();
     const [appliedTrainer, setAppliedTrainer] = useState(null)
 
 
     useEffect(() => {
-        axiosPublic.get('/trainers')
+        axiosSecure.get('/trainers')
             .then(res => {
                 setAppliedTrainer(res.data)
             })
             .catch(error => {
                 console.log(error.message);
             })
-    }, [axiosPublic])
+    }, [axiosSecure])
 
     const { data: userRole = [], refetch } = useQuery({
         queryKey: ['users',user?.email],

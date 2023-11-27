@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const ManageMember = () => {
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const [member, setMember] = useState([]);
 
     useEffect(() => {
-        axiosPublic.get('/users')
+        axiosSecure.get('/users')
             .then(res => {
                 const data= res.data;
                 // console.log(data);
@@ -18,7 +18,7 @@ const ManageMember = () => {
             .catch(error => {
                 console.log(error.message);
             })
-    }, [axiosPublic])
+    }, [axiosSecure])
 // console.log(member);
     return (
         <div>

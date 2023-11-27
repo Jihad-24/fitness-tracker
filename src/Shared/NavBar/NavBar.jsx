@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import icon from '../../assets/react.svg';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import useAdmin from '../../hooks/useAdmin';
+import useTrainer from '../../hooks/useTrainer';
 
 const NavBar = () => {
 
@@ -12,7 +14,9 @@ const NavBar = () => {
     const [userData, setuserData] = useState();
     const email = user?.email;
     const axiosPublic = useAxiosPublic()
-// console.log(userData);
+    const [isAdmin] = useAdmin();
+    const [isTrainer] = useTrainer();
+    // console.log(isTrainer);
     useEffect(() => {
         setLoading(true)
         if (email) {
@@ -25,7 +29,7 @@ const NavBar = () => {
                     console.log(error.message);
                 })
         }
-    }, [email, setLoading,axiosPublic])
+    }, [email, setLoading, axiosPublic])
 
     const handleSignOut = () => {
         logOut()
@@ -55,16 +59,24 @@ const NavBar = () => {
                 <li className="font-semibold"><NavLink to={"/login"}>Login</NavLink></li>
             </>
         }
-        {/* {user?.email && <> */}
-            <li className="font-semibold"><NavLink to="/gallery">Gallery</NavLink></li>
-            <li className="font-semibold"><NavLink to="/trainer">Trainer</NavLink></li>
-            <li className="font-semibold"><NavLink to="/classes">Classes</NavLink></li>
-            {/* TODO: dashboard will be acording to user role */}
-            <li className="font-semibold"><NavLink to="/dashboard">Dashboard</NavLink></li>
-            <li className="font-semibold"><NavLink to="/forums">Forums</NavLink></li>
-        </>
-        // }
-    // </>
+        {user?.email && <>
+        <li className="font-semibold"><NavLink to="/gallery">Gallery</NavLink></li>
+        <li className="font-semibold"><NavLink to="/trainer">Trainer</NavLink></li>
+        <li className="font-semibold"><NavLink to="/classes">Classes</NavLink></li>
+        {
+            user && isAdmin && <li><NavLink to={'/dashboard/adminHome'}>Dashboard</NavLink></li>
+        }
+        {
+            user && isTrainer && <li><NavLink to={'/dashboard/trainerHome'}>Dashboard</NavLink></li>
+        }
+        {
+            user && !isAdmin && !isTrainer && <li><NavLink to={'/dashboard/userHome'}>Dashboard</NavLink></li>
+        }
+        <li className="font-semibold"><NavLink to="/forums">Forums</NavLink></li>
+        <li className="font-semibold"><NavLink to="/error">Error</NavLink></li>
+    </>
+    }
+     </>
 
 
     return (

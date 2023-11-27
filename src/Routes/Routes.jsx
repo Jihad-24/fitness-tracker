@@ -29,6 +29,11 @@ import TrainerHome from "../Pages/Dashboard/TrainerHome/TrainerHome";
 import ActivityLog from "../Pages/Dashboard/ActivityLog/ActivityLog";
 import UpdateProfile from "../Pages/UserProfile/UpdateProfile";
 import RecommendedClass from "../Pages/Dashboard/RecommendedClass/RecommendedClass";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AdminRoute from "./AdminRoute";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import TrainerRoute from "./TrainerRoute";
+import AdminTrainerRoute from "./AdminTrainerRoute";
 
 
 
@@ -78,7 +83,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             // normal users route
             {
@@ -105,53 +110,53 @@ const router = createBrowserRouter([
             // trainer user route
             {
                 path:'trainerHome',
-                element:<TrainerHome></TrainerHome>,
+                element:<TrainerRoute><TrainerHome></TrainerHome></TrainerRoute>,
             },
             {
                 path:'manageSlots',
-                element:<ManageSlots></ManageSlots>,
+                element:<TrainerRoute><ManageSlots></ManageSlots></TrainerRoute>,
             },
             {
                 path:'manageMember',
-                element:<ManageMember></ManageMember>,
+                element:<TrainerRoute><ManageMember></ManageMember></TrainerRoute>,
             },
             {
                 path:'manageMember/:id',
-                element:<GiveAdvice></GiveAdvice>,
+                element:<TrainerRoute><GiveAdvice></GiveAdvice></TrainerRoute>,
             },
             {
                 path:'addNewForum',
-                element:<AddNewForum></AddNewForum>,
+                element:<AdminTrainerRoute><AddNewForum></AddNewForum></AdminTrainerRoute>,
             },
             {
                 path:'addNewClass',
-                element:<AddNewClass></AddNewClass>,
+                element:<TrainerRoute><AddNewClass></AddNewClass></TrainerRoute>,
             },
 
             // admin routes
             {
                 path:'adminHome',
-                element:<Subscribers></Subscribers>,
+                element:<AdminRoute><AdminHome></AdminHome></AdminRoute>,
             },
             {
                 path:'allSubscribers',
-                element:<Subscribers></Subscribers>,
+                element:<AdminRoute><Subscribers></Subscribers></AdminRoute>,
             },
             {
                 path:'allTrainers',
-                element:<AllTrainers></AllTrainers>,
+                element:<AdminRoute><AllTrainers></AllTrainers></AdminRoute>,
             },
             {
                 path:'appliedTrainer',
-                element:<AppliedTrainer></AppliedTrainer>,
+                element:<AdminRoute><AppliedTrainer></AppliedTrainer></AdminRoute>,
             },
             {
                 path:'balance',
-                element:<Balance></Balance>,
+                element:<AdminRoute><Balance></Balance></AdminRoute>,
             },
             {
-                path:'payment',
-                element:<Payment></Payment>,
+                path:'payment/:id',
+                element:<AdminRoute><Payment></Payment></AdminRoute>,
             },
             
         ]
@@ -163,6 +168,10 @@ const router = createBrowserRouter([
     {
         path:'/register',
         element:<Register></Register>,
+    },
+    {
+        path:'*',
+        element:<ErrorPage></ErrorPage>,
     },
 ]);
 

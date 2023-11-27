@@ -1,10 +1,12 @@
 import { FaBook, FaCalendar, FaCommentAlt, FaEnvelope, FaHome, FaList, FaShoppingBasket, FaUser, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
+import useTrainer from "../hooks/useTrainer";
 
 
 const Dashboard = () => {
-    const [isAdmin] = '';
-    const [isTrainer] = '';
+    const [isAdmin] = useAdmin();
+    const [isTrainer] = useTrainer();
     return (
         <div className="flex max-w-screen-xl mx-auto">
             {/* dashboard side bar */}
@@ -16,7 +18,7 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to={"/dashboard/adminHome"}>
                                     <FaHome></FaHome>
-                                    User Home
+                                    Admin Home
                                 </NavLink>
                             </li>
                             <li>
@@ -49,12 +51,6 @@ const Dashboard = () => {
                                     Add new Forum
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to={"/dashboard/addNewClass"}>
-                                    <FaBook></FaBook>
-                                    Add New Class
-                                </NavLink>
-                            </li>
 
                         </>) : isTrainer ? (
                             <>
@@ -62,7 +58,7 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to={"/dashboard/trainerHome"}>
                                         <FaHome></FaHome>
-                                        User Home
+                                        Trainer Home
                                     </NavLink>
                                 </li>
                                 <li>

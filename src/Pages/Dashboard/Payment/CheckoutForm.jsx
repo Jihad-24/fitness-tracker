@@ -2,12 +2,12 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAuth from "../../../hooks/useAuth";
-import useCart from "../../../hooks/useCart";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-
-const CheckoutForm = () => {
+const CheckoutForm = ({selectedItem}) => {
+    
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const [transctionId, setTransactionId] = useState('');
@@ -16,9 +16,8 @@ const CheckoutForm = () => {
     const elements = useElements();
     const axiosPublic = useAxiosPublic();
     const { user } = useAuth();
-    const [cart] = useCart();
-    const totalPrice = cart.reduce((total, item) => total + parseInt(item.price), 0);
-
+    const totalPrice = parseInt(selectedItem.price);
+    // console.log(totalPrice);
     // console.log(user?.email);
 
     useEffect(() => {
@@ -75,19 +74,23 @@ const CheckoutForm = () => {
             if (paymentIntent.status === 'succeeded') {
                 // console.log('transction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id);
-
-                // now save the payment in database
                 const payment = {
                     email: user.email,
                     price: totalPrice,
                     transctionId: paymentIntent.id,
-                    date: new Date(), // utc data convert use moment js
-                    cartIds: cart.map(item => item._id),
+                    date: new Date(), 
+                    cartIds: selectedItem._id,
                     status: 'paid'
                 }
 
                 const res = await axiosPublic.post('/payments', payment)
                 // console.log('payment saved', res.data);
+                try {
+                    const response = await axiosPublic.put(`/teacher/${selectedItem._id}`);
+                    console.log('Status updated successfully:', response.data);
+                  } catch (error) {
+                    console.error('Error updating status:', error);
+                  }
 
                 if (res.data?.insertedId) {
                     Swal.fire({
@@ -134,5 +137,8 @@ const CheckoutForm = () => {
         </div>
     );
 };
+CheckoutForm.propTypes = {
+    selectedItem: PropTypes.object, 
+  };
 
 export default CheckoutForm;

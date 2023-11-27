@@ -1,9 +1,17 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import { useParams } from "react-router-dom";
+import useCart from "../../../hooks/useCart";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK)
 const Payment = () => {
+    const {id}=useParams();
+    // console.log(id);
+    const [cart]=useCart();
+
+    const selectedItem = cart?.find(item => item._id == id);
+
     return (
         <div>
             <div className="">
@@ -13,7 +21,7 @@ const Payment = () => {
             </div>
             <div>
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm></CheckoutForm>
+                    <CheckoutForm selectedItem={selectedItem}></CheckoutForm>
                 </Elements>
             </div>
         </div>

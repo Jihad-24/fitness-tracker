@@ -36,7 +36,7 @@ const UpdateProfile = () => {
                 image: res.data.data.display_url
             }
             const patchRes = await axiosPublic.put(`/user/${id}`, patchItem)
-            console.log(patchRes.data);
+            // console.log(patchRes.data);
             if (patchRes.data.modifiedCount) {
                 reset();
                 Swal.fire({

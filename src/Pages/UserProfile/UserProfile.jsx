@@ -36,7 +36,6 @@ const UserProfile = () => {
                                 :
                                 <img src={user && user?.photoURL ? user?.photoURL : 'https://i.ibb.co/2FngQt8/user.png'} className="rounded-xl h-[200px] w-[300px]"  />
                             }
-                            {/* <img src={user && user?.photoURL ? user?.photoURL : 'https://i.ibb.co/2FngQt8/user.png'} alt="Shoes" className="rounded-xl h-[200px] w-[300px]" /> */}
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Name: {userData?.name}</h2>

@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const Subscribers = () => {
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const [subscribers, setSubscribers] = useState();
 
     useEffect(() => {
-        axiosPublic.get('/subscribes')
+        axiosSecure.get('/subscribes')
             .then(res => {
                 setSubscribers(res.data)
             })
             .catch(error=>{
                 console.log(error.message);
             })
-    }, [axiosPublic])
+    }, [axiosSecure])
 
 
 
