@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 const TrainerDetails = () => {
@@ -29,6 +30,9 @@ const TrainerDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>TrainerDetails || Fitness Tracker</title>
+            </Helmet>
             {!isLoading &&
                 <div className="card  bg-base-100 shadow-xl">
                     <figure><img src={trainerData?.profileImage} alt="Shoes" className=" h-[200px]" /></figure>

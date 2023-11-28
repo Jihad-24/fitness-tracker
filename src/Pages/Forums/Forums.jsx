@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
+import { Helmet } from "react-helmet";
 
 
 const Forums = () => {
@@ -63,6 +64,9 @@ const Forums = () => {
 
     return (
         <div className="mt-10 mb-20">
+            <Helmet>
+                <title>Forums || Fitness Tracker</title>
+            </Helmet>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {!isLoading &&
                     postData?.map(post =>

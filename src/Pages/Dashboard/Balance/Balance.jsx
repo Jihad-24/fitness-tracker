@@ -2,6 +2,7 @@ import { Cell, PieChart, Pie } from 'recharts';
 import useAuth from '../../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet';
 
 const COLORS = ['#0088FE', '#00C49F'];
 
@@ -50,6 +51,9 @@ const Balance = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Balance || Fitness Tracker</title>
+            </Helmet>
             <h1 className="md:text-3xl text-center text-xl">
                 <span className='text-blue-900'>Hi, Welcome {user?.displayName ? user.displayName : 'Back'}!</span>
             </h1>

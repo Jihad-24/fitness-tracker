@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Helmet } from 'react-helmet';
 
 const Gallery = () => {
     const [images, setImages] = useState([]);
@@ -49,6 +50,9 @@ const Gallery = () => {
 
     return (
         <div className="mx-5 md:mx-10 ">
+            <Helmet>
+                <title>Gallery || Fitness Tracker</title>
+            </Helmet>
             <div className="h-52 w-full flex items-center justify-center border rounded"
                 style={{
                     backgroundImage: 'url("https://i.ibb.co/fDmvkM6/360-F-606549277-BMzgu4-Qo-Nfq-HDkm-Ugng-Jr-FHux-ZXvk-S7d.jpg")',

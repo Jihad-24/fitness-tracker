@@ -138,7 +138,7 @@ const Dashboard = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/gallary"}>
+                        <NavLink to={"/gallery"}>
                             <FaEnvelope></FaEnvelope>
                             Gallary
                         </NavLink>

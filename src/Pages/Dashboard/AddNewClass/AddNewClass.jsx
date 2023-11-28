@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { FaStar } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -43,6 +44,9 @@ const AddNewClass = () => {
     };
     return (
         <div>
+            <Helmet>
+                <title>AddNewClass || Fitness Tracker</title>
+            </Helmet>
             <div className="divider"></div>
             <h1 className="text-center text-2xl md:text-3xl font-bold my-2">Add New Class</h1>
             <div className="divider"></div>

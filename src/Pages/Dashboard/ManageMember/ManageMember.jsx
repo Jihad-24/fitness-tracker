@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 
 const ManageMember = () => {
@@ -22,6 +23,9 @@ const ManageMember = () => {
 // console.log(member);
     return (
         <div>
+            <Helmet>
+                <title>ManageMember || Fitness Tracker</title>
+            </Helmet>
         <div className="divider"></div>
         <h1 className="text-center text-2xl md:text-4xl font-bold my-2">Manage Slots</h1>
         <div className="divider"></div>

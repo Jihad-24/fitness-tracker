@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 const Trainer = () => {
@@ -23,6 +24,9 @@ const Trainer = () => {
 
     return (
         <div className="my-20 ">
+            <Helmet>
+                <title>Trainer || Fitness Tracker</title>
+            </Helmet>
             {!isLoading &&
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {

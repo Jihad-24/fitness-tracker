@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 const ActivityLog = () => {
@@ -23,6 +24,9 @@ const ActivityLog = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>ActivityLog || Fitness Tracker</title>
+            </Helmet>
             <div className="divider"></div>
             <h1 className="text-center text-2xl md:text-4xl font-bold my-2">Activity Log</h1>
             <div className="divider"></div>

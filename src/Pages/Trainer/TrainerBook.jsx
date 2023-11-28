@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 const TrainerBook = () => {
@@ -114,6 +115,9 @@ const TrainerBook = () => {
     }
     return (
         <div className="mb-20 mt-3">
+            <Helmet>
+                <title>Plan || Fitness Tracker</title>
+            </Helmet>
             {!isLoading &&
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:mx-16 md:mx-10 mx-4">
                     <div>

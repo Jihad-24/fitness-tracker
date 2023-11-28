@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const RecommendedClass = () => {
@@ -22,6 +23,9 @@ const RecommendedClass = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Recommended || Fitness Tracker</title>
+            </Helmet>
              <div className="divider"></div>
             <h1 className="text-center text-2xl md:text-3xl font-bold my-2">Recommended Classes</h1>
             <div className="divider"></div>

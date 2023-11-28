@@ -1,19 +1,19 @@
 /* eslint-disable no-unused-vars */
+
 import { useEffect, useRef, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import emailjs from '@emailjs/browser';
+import { Helmet } from "react-helmet";
 
 const AppliedTrainer = () => {
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const {user}=useAuth();
-    const navigate =useNavigate();
     const [appliedTrainer, setAppliedTrainer] = useState(null)
     const form = useRef();
 
@@ -70,12 +70,14 @@ const AppliedTrainer = () => {
                         timer: 1500
                     });
                 }
-                navigate('/dashboard/appliedTrainer')
             })
     }
 
     return (
         <div>
+            <Helmet>
+                <title>AppliedTrainer || Fitness Tracker</title>
+            </Helmet>
             <div className="overflow-x-auto w-3/4 mx-auto">
                 <div className="divider"></div>
                 <h1 className="text-center text-2xl md:text-4xl font-bold my-2">Applied Trainers</h1>
@@ -120,6 +122,7 @@ const AppliedTrainer = () => {
                                                  <button type="button" className="btn btn-sm btn-error" onClick={(e) => sendEmail(item, e)}>Reject</button>
                                             </div>
                                         </div>
+                                        
                                         <label className="modal-backdrop" htmlFor={`my_modal_${index}`}>Close</label>
                                     </div>
                                 </td>

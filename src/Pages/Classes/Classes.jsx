@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 const Classes = () => {
@@ -23,6 +24,9 @@ const Classes = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Classes || Fitness Tracker</title>
+            </Helmet>
             <div className="mb-10">
                 <div className="overflow-x-auto">
                     <h1 className="text-center  text-4xl font-bold my-2">Class Scedule</h1>

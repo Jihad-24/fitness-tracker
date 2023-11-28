@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 const BecomeTrainer = () => {
@@ -59,6 +60,9 @@ const BecomeTrainer = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>ApplyTrainer || Fitness Tracker</title>
+            </Helmet>
             <div className='md:py-20 py-10 px-3'>
                 <h1 className='text-center font-extrabold mb-10 text-purple-500 text-2xl md:text-4xl'>Become a Trainer</h1>
                 <form onSubmit={handleApplied}>

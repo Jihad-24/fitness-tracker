@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const UserProfile = () => {
     const { user } = useAuth();
@@ -27,6 +28,9 @@ const UserProfile = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>UserProfile || Fitness Tracker</title>
+            </Helmet>
             {!isLoading &&
                 <div className="flex justify-center">
                     <div className="card bg-base-100 shadow-xl">

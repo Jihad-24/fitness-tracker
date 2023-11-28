@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 const Register = () => {
@@ -85,6 +86,9 @@ const Register = () => {
 
     return (
         <div className='pb-24' >
+            <Helmet>
+                <title>SignUp || Fitness Tracker</title>
+            </Helmet>
             <div className="">
                 <h1 className="text-4xl mt-10 font-bold text-center" >Register your account!</h1>
                 <form

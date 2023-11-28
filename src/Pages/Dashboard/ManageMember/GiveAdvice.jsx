@@ -2,6 +2,7 @@ import emailjs from '@emailjs/browser';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet';
 
 const GiveAdvice = () => {
     const { id } = useParams();
@@ -44,6 +45,9 @@ const GiveAdvice = () => {
 
     return (
         <div className='w-10/12 mx-auto'>
+            <Helmet>
+                <title>GiveAdvice || Fitness Tracker</title>
+            </Helmet>
             <form className='flex flex-col space-y-4 justify-center' ref={form} onSubmit={sendEmail}>
                 <div className="form-control w-full max-w-xs mx-auto">
                     <label className="label">

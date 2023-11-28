@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import emailjs from '@emailjs/browser';
+import { Helmet } from "react-helmet";
 
 const ManageSlots = () => {
     const axiosPublic = useAxiosPublic();
@@ -39,6 +40,9 @@ const ManageSlots = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>ManageSlots || Fitness Tracker</title>
+            </Helmet>
             <div className="divider"></div>
             <h1 className="text-center text-2xl md:text-4xl font-bold my-2">Manage Slots</h1>
             <div className="divider"></div>

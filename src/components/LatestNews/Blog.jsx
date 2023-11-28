@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet";
 
 
 const Blog = () => {
     return (
         <div className="flex justify-center">
+            <Helmet>
+                <title>Blog || Fitness Tracker</title>
+            </Helmet>
             <div className="card bg-neutral text-neutral-content w-full md:w-3/4 lg:w-2/3 my-6">
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-green-600">Title: The Art of Rest: Recharging Your Body for Health, Vitality, and Weight Management!</h2>

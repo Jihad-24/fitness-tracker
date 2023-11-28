@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Banner from "../../components/Banner/Banner";
 import Featured from "../../components/Featured/Featured";
 import FeaturedClasses from "../../components/FeaturedClass/FeaturedClasses";
@@ -11,6 +12,10 @@ import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 const HomePage = () => {
     return (
         <div>
+            <Helmet>
+                <title>Home || Fitness Tracker</title>
+            </Helmet>
+            <div className="">
             <Banner></Banner>
             <Featured></Featured>
             <WhyChooseUs></WhyChooseUs>
@@ -19,6 +24,7 @@ const HomePage = () => {
             <LatestNews></LatestNews>
             <OurTeam></OurTeam>
             <Subscribe></Subscribe>
+            </div>
         </div>
     );
 };

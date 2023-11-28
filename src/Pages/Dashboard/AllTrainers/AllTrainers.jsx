@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
+import { Helmet } from "react-helmet";
 
 const AllTrainers = () => {
     const [cart] = useCart();
@@ -7,6 +8,9 @@ const AllTrainers = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>AllTrainer || Fitness Tracker</title>
+            </Helmet>
             <div className="overflow-x-auto w-full md:w-3/4 mx-auto">
                 <div className="divider"></div>
                 <h1 className="text-center text-2xl md:text-4xl font-bold my-2">All Trainers</h1>

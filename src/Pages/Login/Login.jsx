@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const [loginError, setLoginError] = useState('');
@@ -65,6 +66,9 @@ const Login = () => {
 
     return (
         <div className='pb-24'>
+            <Helmet>
+                <title>Login || Fitness Tracker</title>
+            </Helmet>
             <div >
                 <h1 className="text-4xl mt-10 font-bold text-center" >Login your account!</h1>
                 <form
