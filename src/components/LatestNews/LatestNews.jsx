@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const LatestNews = () => {
@@ -21,7 +22,7 @@ const LatestNews = () => {
                                 Rest your way to health and vitality for health.
                                 <div className="badge badge-secondary">NEW</div>
                             </h2>
-                            <p>Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy. The copy warned the <span className="text-green-400">Read More...</span></p>
+                            <p>Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy. The copy warned the <Link to={'/blog'}><span className="text-green-400">Read More...</span></Link></p>
                         </div>
                     </div>
                 </div>
@@ -36,7 +37,7 @@ const LatestNews = () => {
                                 Fat loss, health tips, healthy eating, healthy lifestyle.
                                 <div className="badge badge-secondary">NEW</div>
                             </h2>
-                            <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas and devious Semikoli, <span className="text-green-400">Read More...</span></p>
+                            <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas and devious Semikoli, <Link to={'/blog'}><span className="text-green-400">Read More...</span></Link> </p>
                         </div>
                     </div>
                 </div>
@@ -50,6 +51,7 @@ const LatestNews = () => {
                                     <div className="badge badge-secondary">NEW</div>
                                 </h2>
                                 <p className="text-green-600 pt-1 font-bold">NOV 30, 2023</p>
+                                <Link to={'/blog'}><span className="text-green-400">Read More...</span></Link>
                             </div>
                             <div className="pb-7">
                                 <h2 className="card-title">
@@ -57,6 +59,7 @@ const LatestNews = () => {
                                     <div className="badge badge-secondary">NEW</div>
                                 </h2>
                                 <p className="text-green-600 pt-1 font-bold">NOV 30, 2023</p>
+                                <Link to={'/blog'}><span className="text-green-400">Read More...</span></Link>
                             </div>
                             <div className="pb-7">
                                 <h2 className="card-title">
@@ -64,6 +67,7 @@ const LatestNews = () => {
                                     <div className="badge badge-secondary">NEW</div>
                                 </h2>
                                 <p className="text-green-600 pt-1 font-bold">NOV 30, 2023</p>
+                                <Link to={'/blog'}><span className="text-green-400">Read More...</span></Link>
                             </div>
 
                         </div>

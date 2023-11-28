@@ -105,7 +105,7 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to={"/dashboard/userProfile"}>
                                         <FaUser></FaUser>
-                                        User Profile
+                                        Profile Settings
                                     </NavLink>
                                 </li>
                                 <li>

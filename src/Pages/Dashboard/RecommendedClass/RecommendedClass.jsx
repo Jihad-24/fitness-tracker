@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 
 const RecommendedClass = () => {
@@ -36,7 +37,9 @@ const RecommendedClass = () => {
                                 <h2 className="card-title">Class: {item.gymClass}</h2>
                                 <h3>Experience: {item.experienceYears} Years</h3>
                                 <h3>Available: {item.availableTimeSlot}</h3>
-                               <button className="btn btn-success">Join Now</button>
+                             <Link to={`/classes/${item._id}`}>
+                               <button className="btn btn-success">Know More</button>
+                            </Link>
                             </div>
                         </div>
                        )

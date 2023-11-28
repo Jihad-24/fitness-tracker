@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -7,7 +7,7 @@ import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-
+import emailjs from '@emailjs/browser';
 
 const AppliedTrainer = () => {
     const axiosPublic = useAxiosPublic();
@@ -15,7 +15,27 @@ const AppliedTrainer = () => {
     const {user}=useAuth();
     const navigate =useNavigate();
     const [appliedTrainer, setAppliedTrainer] = useState(null)
+    const form = useRef();
 
+    const sendEmail = (item, e) => {
+        e.preventDefault();
+
+        emailjs.send(
+            'service_5ouchdh',
+            'template_85nth8e',
+            {
+                to_name: item.name,
+                user_email: item.email,
+            },
+            'VzcyFsNAIJWzcwEmB'
+        )
+            .then((result) => {
+                console.log(result.text);
+            })
+            .catch((error) => {
+                console.log(error.text);
+            });
+    };
 
     useEffect(() => {
         axiosSecure.get('/trainers')
@@ -37,7 +57,7 @@ const AppliedTrainer = () => {
 
 
     const handleMakeTrainer = user => {
-        axiosPublic.patch(`/users/${user.email}`)
+        axiosSecure.patch(`/users/${user.email}`)
             .then(res => {
                 // console.log(res.data);
                 if (res.data.modifiedCount > 0) {
@@ -50,7 +70,7 @@ const AppliedTrainer = () => {
                         timer: 1500
                     });
                 }
-                navigate('/dashboard/allTrainers')
+                navigate('/dashboard/appliedTrainer')
             })
     }
 
@@ -58,9 +78,9 @@ const AppliedTrainer = () => {
         <div>
             <div className="overflow-x-auto w-3/4 mx-auto">
                 <div className="divider"></div>
-                <h1 className="text-center text-2xl md:text-4xl font-bold my-2">All Trainers</h1>
+                <h1 className="text-center text-2xl md:text-4xl font-bold my-2">Applied Trainers</h1>
                 <div className="divider"></div>
-
+                <form ref={form}>
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
@@ -97,7 +117,7 @@ const AppliedTrainer = () => {
                                             <div className="flex gap-4 items-center justify-center py-3">
                                                 <button onClick={()=>handleMakeTrainer(item)}
                                                 className="btn btn-success btn-sm">Confirmation</button>
-                                                <button className="btn btn-warning btn-sm">Reject</button>
+                                                 <button type="button" className="btn btn-sm btn-error" onClick={(e) => sendEmail(item, e)}>Reject</button>
                                             </div>
                                         </div>
                                         <label className="modal-backdrop" htmlFor={`my_modal_${index}`}>Close</label>
@@ -108,6 +128,7 @@ const AppliedTrainer = () => {
 
                     </tbody>
                 </table>
+                </form>
             </div>
         </div>
     );

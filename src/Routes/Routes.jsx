@@ -34,6 +34,8 @@ import AdminRoute from "./AdminRoute";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import TrainerRoute from "./TrainerRoute";
 import AdminTrainerRoute from "./AdminTrainerRoute";
+import Profile from "../components/Profile/Profile";
+import Blog from "../components/LatestNews/Blog";
 
 
 
@@ -77,6 +79,14 @@ const router = createBrowserRouter([
             {
                 path:'forums',
                 element:<Forums></Forums>,
+            },
+            {
+                path:'profile',
+                element:<Profile></Profile>,
+            },
+            {
+                path:'blog',
+                element:<Blog></Blog>,
             },
            
         ]

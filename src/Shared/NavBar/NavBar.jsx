@@ -73,6 +73,7 @@ const NavBar = () => {
             user && !isAdmin && !isTrainer && <li><NavLink to={'/dashboard/userHome'}>Dashboard</NavLink></li>
         }
         <li className="font-semibold"><NavLink to="/forums">Forums</NavLink></li>
+        <li className="font-semibold"><NavLink to="/profile">Profile</NavLink></li>
         <li className="font-semibold"><NavLink to="/error">Error</NavLink></li>
     </>
     }
