@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5001',
+    baseURL: 'https://b8a12-server-side-jihad-24.vercel.app',
 })
 
 const useAxiosSecure = () => {

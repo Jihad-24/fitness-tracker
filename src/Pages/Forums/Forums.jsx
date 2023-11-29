@@ -87,8 +87,8 @@ const Forums = () => {
                 <title>Forums || Fitness Tracker</title>
             </Helmet>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                {!isLoading &&
-                    postData?.map(post =>
+                {!isLoading && postData.length ?
+                    (postData?.map(post =>
                         <div key={post._id} className="card bg-base-100 shadow-xl">
 
                             <div className="card-body">
@@ -114,7 +114,10 @@ const Forums = () => {
                                     <AiFillDislike className="text-xl" />
                                     <span>{post.downVotes}</span></button>
                             </div>
-                        </div>)
+                        </div>)) :
+                    (<div className="col-span-1 md:col-span-2 lg:col-span-3 text-center">
+                        <h1 className="text-2xl font-bold text-center">There are no More Forums wait for Admin or Trainer to Add New Forums</h1>
+                    </div>)
 
                 }
             </div>

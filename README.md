@@ -1,6 +1,6 @@
 # Fitness Tracker
 
-Click here for the live page: []
+Click here for the live page: [https://fitness-tracker-jihad.netlify.app/]
 
 Here are at least five or more bullet points mentioning different features and functionalities of my website:
 
