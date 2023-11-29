@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Badge, Button, CardActionArea, Box, Grid } from '@mui/material';
+import { Badge, Button, CardActionArea, Box, Grid, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
@@ -35,18 +35,19 @@ const LatestNews = () => {
         },
     ];
     return (
-        <Box textAlign="center" maxWidth="95%" mx="auto" my={10} marginBottom={4}>
+        <Box textAlign="center" mx="auto" my={10} marginBottom={4}>
             <Typography variant="h4" gutterBottom>
                 Latest <span style={{ color: '#3B82F6' }}>News</span>
             </Typography>
             <Typography variant="body1" color="#636262" fontSize="1.25rem" marginBottom={4}>
                 Stay informed with our comprehensive coverage of the latest events, breaking news, and trending stories from around the world. Our dedicated team of journalists and reporters brings you up-to-the-minute updates.
             </Typography>
-            <Grid container spacing={3} justifyContent="center" alignItems="center">
+            <Container maxWidth='lg'>
+            <Grid  container spacing={3} justifyContent="center" alignItems="center">
                 {cardDetails.map((card, index) => (
                     <Grid key={index} item xs={12} sm={6} md={4}>
                         <Box textAlign="center">
-                            <Card sx={{ maxWidth: 345 }} >
+                            <Card>
                                 <CardActionArea>
                                     <Box sx={{ position: 'relative' }}>
                                         <CardMedia
@@ -92,6 +93,7 @@ const LatestNews = () => {
                     </Grid>
                 ))}
             </Grid>
+            </Container>
         </Box>
     );
 };

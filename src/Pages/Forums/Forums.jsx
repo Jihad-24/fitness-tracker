@@ -9,19 +9,38 @@ const Forums = () => {
     const [postData, setPostData] = useState([]);
     const axiosPublic = useAxiosPublic();
     const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    const limit = 6;
 
     useEffect(() => {
-        setIsLoading(true)
-        axiosPublic.get('/forums')
+        setIsLoading(true);
+        axiosPublic.get(`/forums?page=${page}&limit=${limit}`) // Pass page and limit as query parameters
             .then(res => {
-                setPostData(res.data)
-                setIsLoading(false)
+                setPostData(res.data.result);
+                setIsLoading(false);
             })
             .catch(error => {
                 console.log(error.message);
-            })
-    }, [axiosPublic])
-
+            });
+    }, [axiosPublic, page, limit]);
+    // useEffect(() => {
+    //     setIsLoading(true)
+    //     axiosPublic.get('/forums')
+    //         .then(res => {
+    //             setPostData(res.data)
+    //             setIsLoading(false)
+    //         })
+    //         .catch(error => {
+    //             console.log(error.message);
+    //         })
+    // }, [axiosPublic])
+    const handlePagination = (direction) => {
+        if (direction === "prev" && page > 1) {
+            setPage(page - 1);
+        } else if (direction === "next") {
+            setPage(page + 1);
+        }
+    };
     const handleUpVote = (postId) => {
         axiosPublic.post(`/forums/${postId}/upvote`)
             .then((res) => {
@@ -124,8 +143,12 @@ const Forums = () => {
                 </div>}
             <div className="flex justify-center pt-10">
                 <div className="join">
-                    <button className="join-item btn">« Prev</button>
-                    <button className="join-item btn">Next »</button>
+                    <button className="join-item btn" onClick={() => handlePagination("prev")}>
+                        « Prev
+                    </button>
+                    <button disabled={!postData.length} className="join-item btn" onClick={() => handlePagination("next")}>
+                        Next »
+                    </button>
                 </div>
             </div>
         </div>
