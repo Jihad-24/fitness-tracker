@@ -67,7 +67,7 @@ const TrainerDetails = () => {
                             </a>
                         </div>
                         <h3><span className="font-bold">Trainer Available on: </span>{trainerData?.availableTimeSlot}</h3>
-                        <Link to={'/trainerbooked'}>
+                        <Link to={`/trainerbooked/${id}`}>
                             <button className="btn btn-sm btn-accent">Available Time Slot: {trainerData?.slot}</button>
                         </Link>
                         <p className="md:w-96"><span className="font-bold">Description: </span>{trainerData?.description}</p>

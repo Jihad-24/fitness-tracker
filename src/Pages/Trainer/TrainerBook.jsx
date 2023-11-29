@@ -10,12 +10,31 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const TrainerBook = () => {
     const { id } = useParams();
-    const { user } = useAuth();
+    const { user} = useAuth();
+    const [userData, setUserData] = useState();
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const [trainerData, setTrainerData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true)
+      
+            axiosSecure.get('/users')
+                .then(res => {
+                    const data = res.data;
+                    // console.log(data);
+                    const findUser = data?.find(item => item.email == user?.email)
+                    setUserData(findUser)
+                    // console.log(findUser);
+                    setIsLoading(false)
+                })
+                .catch(error => {
+                    console.log(error.message);
+                })
+        
+    }, [axiosSecure, setIsLoading, user?.email])
 
     useEffect(() => {
         setIsLoading(true)
@@ -33,8 +52,8 @@ const TrainerBook = () => {
 
     const handleSilverPlan = event => {
         event.preventDefault();
-        const name = user.displayName;
-        const email = user.email;
+        const name = user?.displayName || userData?.name;
+        const email = user?.email;
         const gymClass = trainerData.gymClass;
         const trainerName = trainerData.trainerName;
         const availableTimeSlot = trainerData.availableTimeSlot;
@@ -62,7 +81,7 @@ const TrainerBook = () => {
     const handleGoldPlan = event => {
         event.preventDefault();
         const email = user.email;
-        const name = user.displayName;
+        const name = user.displayName || userData?.name;
         const gymClass = trainerData.gymClass;
         const trainerName = trainerData.trainerName;
         const availableTimeSlot = trainerData.availableTimeSlot;
@@ -91,7 +110,7 @@ const TrainerBook = () => {
         event.preventDefault();
         const email = user.email;
         const pack = 'diamond';
-        const name = user.displayName;
+        const name = user.displayName || userData?.name;
         const trainerName = trainerData.trainerName;
         const gymClass = trainerData.gymClass;
         const availableTimeSlot = trainerData.availableTimeSlot;

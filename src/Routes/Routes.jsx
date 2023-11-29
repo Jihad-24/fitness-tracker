@@ -50,11 +50,11 @@ const router = createBrowserRouter([
             },
             {
                 path:'gallery',
-                element:<Gallery></Gallery>,
+                element:<PrivateRoute><Gallery></Gallery></PrivateRoute>,
             },
             {
                 path:'trainer',
-                element:<Trainer></Trainer>,
+                element:<PrivateRoute><Trainer></Trainer></PrivateRoute>,
             },
             {
                 path:'trainerbooked/:id',
@@ -70,23 +70,23 @@ const router = createBrowserRouter([
             },
             {
                 path:'classes',
-                element:<Classes></Classes>,
+                element:<PrivateRoute><Classes></Classes></PrivateRoute>,
             },
             {
                 path:'classes/:id',
-                element:<ClassDetails></ClassDetails>,
+                element:<PrivateRoute><ClassDetails></ClassDetails></PrivateRoute>,
             },
             {
                 path:'forums',
-                element:<Forums></Forums>,
+                element:<PrivateRoute><Forums></Forums></PrivateRoute>,
             },
             {
                 path:'profile',
-                element:<Profile></Profile>,
+                element:<PrivateRoute><Profile></Profile></PrivateRoute>,
             },
             {
                 path:'blog',
-                element:<Blog></Blog>,
+                element:<PrivateRoute><Blog></Blog></PrivateRoute>,
             },
            
         ]
