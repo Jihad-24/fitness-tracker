@@ -114,11 +114,11 @@ const NavBar = () => {
                 <div className="navbar-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            {!user?.photoURL ? (
+                         {user ?   (!user?.photoURL ? (
                                 <img
                                     src={
                                         userData && (userData.image || userData.photo)
-                                            ?  userData.image || userData.photo
+                                            ? userData.image || userData.photo
                                             : 'https://i.ibb.co/2FngQt8/user.png'
                                     }
                                     alt=""
@@ -130,15 +130,15 @@ const NavBar = () => {
                                     alt=""
                                     className="rounded-xl h-[200px] w-[300px]"
                                 />
-                            )}
+                            )): ''}
 
                         </div>
                     </label>
                     <div className="hidden md:block">
                         <Link to={"/profile"}>
-                            <p className="px-1 font-medium">
+                            {user ? <p className="px-1 font-medium">
                                 {user && user?.displayName ? user?.displayName : (userData && userData?.name)}
-                            </p>
+                            </p> : ''}
                         </Link>
                     </div>
                     {
