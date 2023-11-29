@@ -1,19 +1,19 @@
 import emailjs from '@emailjs/browser';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { Helmet } from 'react-helmet';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const GiveAdvice = () => {
     const { id } = useParams();
     // console.log(id);
     const navigate = useNavigate();
-
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure=useAxiosSecure()
     const [member, setMember] = useState([]);
+
 // console.log(member);
     useEffect(() => {
-        axiosPublic.get(`/users`)
+        axiosSecure.get(`/users`)
             .then(res => {
                 const data= res.data;
                 // console.log(data);
@@ -24,7 +24,7 @@ const GiveAdvice = () => {
             .catch(error => {
                 console.log(error.message);
             })
-    }, [axiosPublic,id])
+    }, [axiosSecure,id])
     const form = useRef();
 
     const sendEmail = (e) => {

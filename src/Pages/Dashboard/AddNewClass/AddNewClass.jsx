@@ -3,6 +3,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { FaStar } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -10,6 +11,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const AddNewClass = () => {
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
 
     const onSubmit = async (data) => {
         const imageFile = { image: data.profileImage[0] }
@@ -27,7 +29,7 @@ const AddNewClass = () => {
                 description: data.description,
                 profileImage: res.data.data.display_url
             }
-            const postRes = await axiosPublic.post('/classes', postItem)
+            const postRes = await axiosSecure.post('/classes', postItem)
             console.log(postRes.data);
             if (postRes.data.insertedId) {
                 reset();

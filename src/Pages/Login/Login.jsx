@@ -13,10 +13,6 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // const from = location.state?.from?.pathname || '/';
-    // console.log('state in the location login page', location.state);
-
-
     const handleLogin = e => {
         e.preventDefault();
         // console.log(e.currentTarget);
@@ -48,8 +44,8 @@ const Login = () => {
                           `
                         }
                     });
+                    navigate(location?.state ? location.state : "/");
                 }
-                navigate(location?.state ? location.state : "/");
 
             })
             .catch(error => {

@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const BecomeTrainer = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
-    const axiosPublic =useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
 
 
 
@@ -40,7 +40,7 @@ const BecomeTrainer = () => {
         // console.log(trainerDoc);
 
         // send data to the server
-        axiosPublic.post('/trainers',trainerDoc)
+        axiosSecure.post('/trainers',trainerDoc)
         .then(res => {
             if (res.data.insertedId) {
                 Swal.fire({

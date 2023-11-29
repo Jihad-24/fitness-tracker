@@ -3,33 +3,37 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import icon from '../../assets/react.svg';
-import useAxiosPublic from '../../hooks/useAxiosPublic';
 import useAdmin from '../../hooks/useAdmin';
 import useTrainer from '../../hooks/useTrainer';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const NavBar = () => {
 
     const { user, logOut, setLoading } = useAuth();
     const navigate = useNavigate();
-    const [userData, setuserData] = useState();
+    const [userData, setUserData] = useState();
     const email = user?.email;
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure();
     const [isAdmin] = useAdmin();
     const [isTrainer] = useTrainer();
     // console.log(isTrainer);
     useEffect(() => {
         setLoading(true)
         if (email) {
-            axiosPublic.get(`/users/${email}`)
-                .then(response => {
-                    setuserData(response.data);
-                    setLoading(false);
+            axiosSecure.get('/users')
+                .then(res => {
+                    const data = res.data;
+                    // console.log(data);
+                    const findUser = data?.find(item => item.email == user?.email)
+                    setUserData(findUser)
+                    // console.log(findUser);
+                    setLoading(false)
                 })
                 .catch(error => {
                     console.log(error.message);
                 })
         }
-    }, [email, setLoading, axiosPublic])
+    }, [email, axiosSecure, setLoading, user?.email])
 
     const handleSignOut = () => {
         logOut()
@@ -60,24 +64,24 @@ const NavBar = () => {
             </>
         }
         {user?.email && <>
-        <li className="font-semibold"><NavLink to="/gallery">Gallery</NavLink></li>
-        <li className="font-semibold"><NavLink to="/trainer">Trainer</NavLink></li>
-        <li className="font-semibold"><NavLink to="/classes">Classes</NavLink></li>
-        {
-            user && isAdmin && <li><NavLink to={'/dashboard/adminHome'}>Dashboard</NavLink></li>
+            <li className="font-semibold"><NavLink to="/gallery">Gallery</NavLink></li>
+            <li className="font-semibold"><NavLink to="/trainer">Trainer</NavLink></li>
+            <li className="font-semibold"><NavLink to="/classes">Classes</NavLink></li>
+            {
+                user && isAdmin && <li><NavLink to={'/dashboard/adminHome'}>Dashboard</NavLink></li>
+            }
+            {
+                user && isTrainer && <li><NavLink to={'/dashboard/trainerHome'}>Dashboard</NavLink></li>
+            }
+            {
+                user && !isAdmin && !isTrainer && <li><NavLink to={'/dashboard/userHome'}>Dashboard</NavLink></li>
+            }
+            <li className="font-semibold"><NavLink to="/forums">Forums</NavLink></li>
+            <li className="font-semibold"><NavLink to="/profile">Profile</NavLink></li>
+            <li className="font-semibold"><NavLink to="/error">Error</NavLink></li>
+        </>
         }
-        {
-            user && isTrainer && <li><NavLink to={'/dashboard/trainerHome'}>Dashboard</NavLink></li>
-        }
-        {
-            user && !isAdmin && !isTrainer && <li><NavLink to={'/dashboard/userHome'}>Dashboard</NavLink></li>
-        }
-        <li className="font-semibold"><NavLink to="/forums">Forums</NavLink></li>
-        <li className="font-semibold"><NavLink to="/profile">Profile</NavLink></li>
-        <li className="font-semibold"><NavLink to="/error">Error</NavLink></li>
     </>
-    }
-     </>
 
 
     return (
@@ -110,11 +114,24 @@ const NavBar = () => {
                 <div className="navbar-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            {!user?.photoURL ?
-                                <img src={userData && userData.photo ? userData?.photo : 'https://i.ibb.co/2FngQt8/user.png'} alt="" />
-                                :
-                                <img src={user && user?.photoURL ? user?.photoURL : 'https://i.ibb.co/2FngQt8/user.png'} alt="" />
-                            }
+                            {!user?.photoURL ? (
+                                <img
+                                    src={
+                                        userData && (userData.image || userData.photo)
+                                            ?  userData.image || userData.photo
+                                            : 'https://i.ibb.co/2FngQt8/user.png'
+                                    }
+                                    alt=""
+                                    className="rounded-xl h-[200px] w-[300px]"
+                                />
+                            ) : (
+                                <img
+                                    src={user && user.photoURL ? user.photoURL : 'https://i.ibb.co/2FngQt8/user.png'}
+                                    alt=""
+                                    className="rounded-xl h-[200px] w-[300px]"
+                                />
+                            )}
+
                         </div>
                     </label>
                     <div className="hidden md:block">

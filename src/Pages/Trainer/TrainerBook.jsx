@@ -5,6 +5,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const TrainerBook = () => {
@@ -12,6 +13,7 @@ const TrainerBook = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const [trainerData, setTrainerData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -40,7 +42,7 @@ const TrainerBook = () => {
         const price = 25;
         const trainerDoc = { email, pack, price, name, trainerName, availableTimeSlot, gymClass }
         // console.log(trainerDoc);
-        axiosPublic.post('/plans', trainerDoc)
+        axiosSecure.post('/plans', trainerDoc)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -68,7 +70,7 @@ const TrainerBook = () => {
         const price = 50;
         const trainerDoc = { email, pack, price, name, trainerName, availableTimeSlot, gymClass }
         // console.log(trainerDoc);
-        axiosPublic.post('/plans', trainerDoc)
+        axiosSecure.post('/plans', trainerDoc)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -96,7 +98,7 @@ const TrainerBook = () => {
         const price = 100;
         const trainerDoc = { email, pack, price, name, trainerName, availableTimeSlot, gymClass }
         // console.log(trainerDoc);
-        axiosPublic.post('/plans', trainerDoc)
+        axiosSecure.post('/plans', trainerDoc)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

@@ -31,7 +31,7 @@ const ActivityLog = () => {
             <h1 className="text-center text-2xl md:text-4xl font-bold my-2">Activity Log</h1>
             <div className="divider"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {
+                { activityLog.length ?
                     activityLog?.map(activity=> <div key={activity._id} className="card bg-neutral text-neutral-content">
                     <div className="card-body items-center text-center">
                       <h2 className="card-title uppercase text-orange-700">{activity.pack} pack</h2>
@@ -42,6 +42,9 @@ const ActivityLog = () => {
                       <p><span className="font-medium">Available Time:</span> {activity.availableTimeSlot}</p>
                      
                     </div>
+                  </div>): 
+                  (<div className="">
+                    <h1 className="font-bold text-2xl text-center">You Do Not Have Any Activity</h1>
                   </div>)
                 }
             </div>

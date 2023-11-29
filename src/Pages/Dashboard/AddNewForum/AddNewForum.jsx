@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { FaStar } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -14,6 +15,7 @@ const AddNewForum = () => {
     const {user}=useAuth();
     const [userRole,setUserRole]=useState([]);
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const [currentDate, setCurrentDate] = useState(new Date().toISOString().slice(0, 10));
 
     useEffect(() => {
@@ -43,7 +45,7 @@ const AddNewForum = () => {
                 role : userRole?.role,
                 image: res.data.data.display_url
             }
-            const postRes = await axiosPublic.post('/forums', postItem)
+            const postRes = await axiosSecure.post('/forums', postItem)
             console.log(postRes.data);
             if (postRes.data.insertedId) {
                 reset();

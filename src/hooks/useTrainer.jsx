@@ -10,9 +10,11 @@ const useTrainer = () => {
         queryKey: [user?.email, 'isTrainer'],
         enabled: !!user,
         queryFn: async () => {
+        //    setTimeout(async()=>{
             const res = await axiosSecure.get(`/users/trainer/${user?.email}`);
             // console.log(res.data);
             return res.data?.trainer;
+        //    },2000)
         }
     })
     return [isTrainer, isTrainerLoading];
