@@ -2,6 +2,7 @@ import { FaBookOpen, FaRunning } from "react-icons/fa";
 import { GiFruitBowl } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import { IoBodyOutline, IoFitnessSharp } from "react-icons/io5";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
 
 
@@ -9,7 +10,8 @@ const Featured = () => {
     return (
         <div className="my-12">
             <div className="text-center space-y-4 mb-8">
-                <h1 className="font-bold text-5xl">Our <span className="text-blue-500">Features</span></h1>
+            <SectionTitle title="Highlighted Offerings" heading="Featured" />
+                {/* <h1 className="font-bold text-5xl">Our <span className="text-blue-500">Features</span></h1> */}
                 <p className="font-bold text-[#494848]">Transform Your Fitness Journey with Expert Guidance <br /> Your Ultimate Fitness Training Destination</p>
             </div>
             <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

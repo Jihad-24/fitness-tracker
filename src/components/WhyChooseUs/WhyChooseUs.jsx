@@ -1,10 +1,12 @@
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
 
 const WhyChooseUs = () => {
     return (
         <div className="my-16">
             <div className="text-center w-3/4 mx-auto space-y-4 mb-10">
-                <h1 className="text-4xl font-bold"><span className="text-blue-500">About</span> Us</h1>
+            <SectionTitle title="Fitness Solutions" heading="About" />
+                {/* <h1 className="text-4xl font-bold"><span className="text-blue-500">About</span> Us</h1> */}
                 <p className="text-[#636262] text-xl">Our fitness coaches can enable you to meet your wellness objectives. They can turn into your instructor, your helper, your mentor and your companion. Our fitness coaches are degreed and confirmed by a certify wellness association.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
